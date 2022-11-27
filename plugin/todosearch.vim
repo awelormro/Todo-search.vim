@@ -1,6 +1,3 @@
-let g:todo_search_keywords=[' TODO',' FIXME',' BUG',' REPAIR',' HACK',' XXX']
- " TODO
- " todo el que lo note 
 function! Concat2(...)
   let l:list=a:1
   let s:kindex='/'
@@ -51,3 +48,7 @@ function! FixmeFilepath()
   endif
   cd -
 endfunction
+
+
+command! FixmeFilepath call FixmeFilepath()
+command! FixmeFilename call FixmeFilename()
