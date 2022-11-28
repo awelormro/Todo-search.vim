@@ -49,6 +49,15 @@ function! FixmeFilepath()
   cd -
 endfunction
 
+function! FixmeCurrentpath()
+  if exists("g:fixme_list_search")
+    exec ':call Concat2(g:todo_search_keywords)'
+    exec ':vimgrep '.s:kindex.'j ** | cw'
+  else
+    vimgrep / TODO\|FIXME\|BUG\|REPAIR\|XXX\|HACK\|NOTE\|WARNING\|WARN/j ** | cw
+  endif
+endfunction
 
+command! FixmeCurrentpath call FixmeCurrentpath()
 command! FixmeFilepath call FixmeFilepath()
 command! FixmeFilename call FixmeFilename()
